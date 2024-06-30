@@ -20,8 +20,25 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddItemActivity::class.java)
             startActivity(intent)
         }
-        binding.addProduct.setOnClickListener {
-            val intent = Intent(this, AddItemActivity::class.java)
+        binding.profile.setOnClickListener {
+            val intent = Intent(this, AdminProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.createUser.setOnClickListener {
+            val intent = Intent(this, CreateUserActivity::class.java)
+            startActivity(intent)
+        }
+        binding.allItemMenu.setOnClickListener {
+            val intent = Intent(this, AllItemActivity::class.java)
+            startActivity(intent)
+        }
+        binding.outForDeliveryButton.setOnClickListener {
+            val intent = Intent(this, OutForDeliveryActivity::class.java)
+            startActivity(intent)
+        }
+        binding.pendingOrderTextView.setOnClickListener {
+            val intent = Intent(
+                this,PendingOrderActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
