@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="@+id/backButton" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/productName"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="8dp"
@@ -65,7 +65,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/productCategory"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="24dp"
@@ -76,12 +76,12 @@
                 android:outlineSpotShadowColor="@color/white"
                 android:paddingLeft="15dp"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/editText"
-                app:layout_constraintStart_toStartOf="@+id/editText"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintEnd_toEndOf="@+id/productName"
+                app:layout_constraintStart_toStartOf="@+id/productName"
+                app:layout_constraintTop_toBottomOf="@+id/productName" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/productPrice"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="24dp"
@@ -92,12 +92,12 @@
                 android:outlineSpotShadowColor="@color/white"
                 android:paddingLeft="15dp"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/editText2"
-                app:layout_constraintStart_toStartOf="@+id/editText2"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+                app:layout_constraintEnd_toEndOf="@+id/productCategory"
+                app:layout_constraintStart_toStartOf="@+id/productCategory"
+                app:layout_constraintTop_toBottomOf="@+id/productCategory" />
 
             <TextView
-                android:id="@+id/selectImageTxt"
+                android:id="@+id/selectImage"
                 android:background="@drawable/edittextshape"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
@@ -107,9 +107,9 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="15dp"
                 android:text="Seleccione Imagen"
-                app:layout_constraintEnd_toEndOf="@+id/editText3"
-                app:layout_constraintStart_toStartOf="@+id/editText3"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+                app:layout_constraintEnd_toEndOf="@+id/productPrice"
+                app:layout_constraintStart_toStartOf="@+id/productPrice"
+                app:layout_constraintTop_toBottomOf="@+id/productPrice" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView7"
@@ -117,9 +117,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/selectImageTxt"
-                app:layout_constraintStart_toStartOf="@+id/selectImageTxt"
-                app:layout_constraintTop_toBottomOf="@+id/selectImageTxt">
+                app:layout_constraintEnd_toEndOf="@+id/selectImage"
+                app:layout_constraintStart_toStartOf="@+id/selectImage"
+                app:layout_constraintTop_toBottomOf="@+id/selectImage">
 
                 <ImageView
                     android:id="@+id/selectedImage"
@@ -146,34 +146,34 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/selectImageTxt"
+                app:layout_constraintStart_toStartOf="@+id/selectImage"
                 app:layout_constraintTop_toBottomOf="@+id/cardView7"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/productDescription"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="@string/loremIpsum"
+                android:hint="Agregue Descripción del Producto"
                 app:layout_constraintEnd_toEndOf="@+id/descripcionTxt"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/descripcionTxt"
                 app:layout_constraintTop_toBottomOf="@id/descripcionTxt" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/AddItemButton"
                 android:layout_width="157dp"
                 android:layout_height="57dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/playbutton"
+                android:text="Agregar Producto"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_marginBottom="16dp"
-                android:text="Agregar Producto"
-                android:layout_marginTop="8dp"
 
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+                app:layout_constraintTop_toBottomOf="@+id/productDescription" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
