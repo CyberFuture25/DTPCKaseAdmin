@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "573227769377",
+    "project_id": "dtpckase-fbfbc",
+    "storage_bucket": "dtpckase-fbfbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573227769377:android:4972e4bbee2d452faa8d60",
+        "android_client_info": {
+          "package_name": "com.example.dtpckaseadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7Baf9yw78SEZNNmmwmhuL3FT2RYtl9bQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
