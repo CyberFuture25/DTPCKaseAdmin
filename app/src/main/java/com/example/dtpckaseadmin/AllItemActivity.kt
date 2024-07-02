@@ -1,15 +1,25 @@
 package com.example.dtpckaseadmin
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dtpckaseadmin.adapter.AddItemAdapter
+import com.example.dtpckaseadmin.adapter.MenuItemAdapter
 import com.example.dtpckaseadmin.databinding.ActivityAllItemBinding
+import com.example.dtpckaseadmin.model.AllProduct
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AllItemActivity : AppCompatActivity() {
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var database: FirebaseDatabase
+    private var menuItems: ArrayList<AllProduct> = ArrayList()
     private val binding: ActivityAllItemBinding by lazy {
         ActivityAllItemBinding.inflate(layoutInflater)
     }
@@ -18,26 +28,54 @@ class AllItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        val productoName = listOf("product01", "product02", "product03", "product04", "product05","product06")
-        val productoItemPrice = listOf("S/.150.00", "S/.120.00", "S/.190.00", "S/.90.00", "S/.200.00","S/.124.00")
-        val productoItemImage = listOf(
-            R.drawable.dragonball1,
-            R.drawable.ccdsc,
-            R.drawable.dsdwd,
-            R.drawable.dsadad,
-            R.drawable.aasas,
-            R.drawable.ccdsc
-        )
+        databaseReference = FirebaseDatabase.getInstance().reference
+        retrieveMenuItem()
+
         binding.backButton.setOnClickListener {
             finish()
         }
-        val adapter = AddItemAdapter(ArrayList(productoName), ArrayList(productoItemPrice), ArrayList(productoItemImage))
-        binding.ProductoRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.ProductoRecyclerView.adapter = adapter
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+
+    private fun retrieveMenuItem() {
+        database = FirebaseDatabase.getInstance()
+        val productRef: DatabaseReference = database.reference.child("all products")
+
+        //fetch data from database
+        productRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                //clear exisiting data before populating
+                menuItems.clear()
+
+                //loop for throiugh each food item
+                for (productSnapShot in snapshot.children) {
+                    val menuItem = productSnapShot.getValue(AllProduct::class.java)
+                    menuItem?.let {
+                        menuItems.add(it)
+                    }
+                }
+                setAdapter()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("DatabaseError", "Error: ${error.message}")
+            }
+
+
+        })
+
+    }
+    private fun setAdapter() {
+     val adapter = MenuItemAdapter(this@AllItemActivity,menuItems,databaseReference)
+      binding.ProductoRecyclerView.layoutManager = LinearLayoutManager(this)
+      binding.ProductoRecyclerView.adapter = adapter
+
+//    }
+
     }
 }

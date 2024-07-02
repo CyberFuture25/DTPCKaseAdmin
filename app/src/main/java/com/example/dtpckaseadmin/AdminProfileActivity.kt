@@ -15,7 +15,10 @@ class AdminProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-        binding.name.isEnabled=false
+        binding.backButton.setOnClickListener {
+            finish()
+        }
+        binding.customerName.isEnabled=false
         binding.address.isEnabled=false
         binding.email.isEnabled=false
         binding.phone.isEnabled=false
@@ -24,13 +27,13 @@ class AdminProfileActivity : AppCompatActivity() {
         var isEnable = false
         binding.editButton.setOnClickListener {
             isEnable = !isEnable
-            binding.name.isEnabled = isEnable
+            binding.customerName.isEnabled = isEnable
             binding.address.isEnabled = isEnable
             binding.email.isEnabled = isEnable
             binding.phone.isEnabled = isEnable
             binding.password.isEnabled = isEnable
             if(isEnable){
-                binding.name.requestFocus()
+                binding.customerName.requestFocus()
             }
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

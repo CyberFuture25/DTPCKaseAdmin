@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/email"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginStart="20dp"
@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/password"
         android:layout_width="325dp"
         android:layout_height="57dp"
         android:layout_marginStart="20dp"
@@ -79,7 +79,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
         android:id="@+id/textView9"
@@ -87,9 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="O"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView10"

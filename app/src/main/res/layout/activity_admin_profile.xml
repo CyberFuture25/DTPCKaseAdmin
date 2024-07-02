@@ -7,20 +7,23 @@
     android:layout_height="match_parent"
     android:background="@color/grey"
     tools:context=".AdminProfileActivity">
+
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:layout_constraintCircleRadius="15dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/back2"
+        android:layout_marginTop="64dp"
         android:background="@drawable/edittextshape"
+        android:src="@drawable/back2"
+        app:layout_constraintCircleRadius="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/satoshiitalic"
         android:text="Perfil Admin"
         android:textColor="@color/white"
@@ -214,7 +217,7 @@
             app:layout_constraintTop_toBottomOf="@id/textView6" />
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/customerName"
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:layout_weight="1"
